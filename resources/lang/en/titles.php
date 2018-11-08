@@ -2,9 +2,9 @@
 
 return [
 
-    'app'			        => 'Laravel MDL 2.0',
-    'app2'			       => 'Laravel MDL 2.0',
-    'home'			       => 'Home',
+    'app'			        => 'PharmaSys',
+    'app2'			       => 'PharmaSys',
+    'home'			       => 'PharmaSys',
     'login'			      => 'Login',
     'logout'		      => 'Logout',
     'register'		    => 'Register',
@@ -13,7 +13,7 @@ return [
     'profile'		     => 'Profile',
     'editProfile'	  => 'Edit Profile',
     'createProfile'	=> 'Create Profile',
-    'dashboard'		   => 'Dashboard',
+    'dashboard'		   => 'Patient List',
     'account' 		    => 'Account',
 
     'activation'	=> 'Registration Started  | Activation Required',
@@ -22,8 +22,8 @@ return [
     'editProfile'	  => 'Edit Profile',
     'createProfile'	=> 'Create Profile',
     'adminUserList'	=> 'Users',
-    'adminEditUsers'=> 'Edit Users',
-    'adminNewUser'	 => 'Add User',
+    'adminEditUsers'=> 'Edit Patient',
+    'adminNewUser'	 => 'Add Patient',
 
     'adminThemesList' => 'Themes',
     'adminThemesAdd'  => 'Add New Theme',
@@ -31,5 +31,5 @@ return [
     'adminLogs'		 => 'Log Files',
     'adminPHP'		  => 'PHP Info',
     'adminRoutes'	=> 'Routing Info',
-
+    
 ];

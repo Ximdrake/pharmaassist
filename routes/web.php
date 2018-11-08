@@ -55,6 +55,7 @@ Route::group(['middleware' => ['auth', 'activated']], function () {
     Route::get('profile/{username}', [
         'as'   => '{username}',
         'uses' => 'ProfilesController@show',
+         
     ]);
 
     // Route to show user avatar
@@ -66,6 +67,14 @@ Route::group(['middleware' => ['auth', 'activated']], function () {
     Route::get('images/profile/{id}/background/{image}', [
         'uses' 		=> 'ProfilesController@userProfileBackgroundImage',
     ]);
+
+    //route for pharma
+    Route::post('add_prescription','UsersManagementController@add_prescription');
+    Route::post('sendMessage','UsersManagementController@sendMessage');
+    Route::post('fetch_prescription','UsersManagementController@fetch_prescription');
+    Route::post('edit_prescription','UsersManagementController@edit_prescription');
+    Route::post('delete_prescription','UsersManagementController@delete_prescription');
+     Route::get('all', 'UsersManagementController@all');
 });
 
 // Registered, activated, and is current user routes.
@@ -119,7 +128,7 @@ Route::group(['middleware' => ['auth', 'activated', 'currentUser']], function ()
 });
 
 // Registered, activated, and is admin routes.
-Route::group(['middleware' => ['auth', 'activated', 'role:admin']], function () {
+Route::group(['middleware' => ['role:admin']], function () {
     Route::resource('/users/deleted', 'SoftDeletesController', [
         'only' => [
             'index', 'show', 'update', 'destroy',
@@ -144,4 +153,5 @@ Route::group(['middleware' => ['auth', 'activated', 'role:admin']], function () 
     Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
     Route::get('php', 'AdminDetailsController@listPHPInfo');
     Route::get('routes', 'AdminDetailsController@listRoutes');
+
 });

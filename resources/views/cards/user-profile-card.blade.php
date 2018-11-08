@@ -115,7 +115,7 @@
 					</div>
 				</div>
 		    </div>
-		    <div class="mdl-card__menu">
+		    <!-- <div class="mdl-card__menu">
 
 				@if (!Auth::guest() && Auth::user()->hasRole('administrator'))
 					<a href="{{ URL::to('users/' . $user->id . '/edit') }}" class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
@@ -126,7 +126,7 @@
 				<button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
 					<i class="material-icons">share</i>
 				</button>
-		    </div>
+		    </div> -->
 	    </div>
 	</div>
 </div>

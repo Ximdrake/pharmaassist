@@ -5,19 +5,50 @@
 @endsection
 
 @section('content')
+<style type="text/css">
+html, body {
+    height:100%;
+} 
 
+    .background-image {
+      position: fixed;
+      left: 0;
+      right: 0;
+      z-index: 1;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-size:  100%;
+    background-image: url("/images/drug.jpg");
+   
+  width: 100%;
+  height: 100%;
+
+  -webkit-filter: blur(2px);
+  -moz-filter: blur(2px);
+  -o-filter: blur(2px);
+  -ms-filter: blur(2px);
+  filter: blur(2px);
+}
+
+.content {
+  
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  
+}
+</style>
+    <div class="background-image"></div>
     <div class="mdl-layout mdl-js-layout mdl-color--grey-100 mdl-auth-form">
+        <br>
+        <br>
+        <br>
+        <br>
         <main class="mdl-layout__content_auth">
             <div class="mdl-card mdl-shadow--2dp">
-                <div class="mdl-card__title mdl-color--primary mdl-color-text--white">
-                    <h2 class="mdl-card__title-text text-center full-span block">
 
-                        {{ trans('titles.app') }}
-
-                    </h2>
-                </div>
                 <div class="mdl-card__supporting-text">
-
+                   
                     {!! Form::open(['url' => 'login', 'method' => 'POST', 'class' => '', 'id' => 'login', 'role' => 'form']) !!}
                         {{ csrf_field() }}
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label {{ $errors->has('email') ? 'is-invalid' :'' }}">
@@ -42,11 +73,7 @@
                     {!! Form::close() !!}
 
                 </div>
-                <div class="mdl-card__actions mdl-card--border">
-
-                    @include('partials.socials-icons')
-
-                </div>
+                 
                 <div class="mdl-card__actions mdl-card--border">
 
                     {!! HTML::link(route('password.request'), trans('auth.forgot'), array('id' => 'forgot', 'class' => 'mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect left')) !!}

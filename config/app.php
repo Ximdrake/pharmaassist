@@ -171,6 +171,9 @@ return [
         App\Providers\LocalEnvironmentServiceProvider::class,
         Rap2hpoutre\LaravelLogViewer\LaravelLogViewerServiceProvider::class,
         jeremykenedy\laravelexceptionnotifier\LaravelExceptionNotifier::class,
+        Yajra\DataTables\DataTablesServiceProvider::class,
+        Nexmo\Laravel\NexmoServiceProvider::class,
+        Lakshmaji\Plivo\PlivoServiceProvider::class,
 
     ],
 
@@ -227,6 +230,9 @@ return [
         'Gravatar'     => Creativeorange\Gravatar\Facades\Gravatar::class,
         'Image'        => Intervention\Image\Facades\Image::class,
         'Uuid'         => Webpatser\Uuid\Uuid::class,
+        'DataTables' => Yajra\DataTables\Facades\DataTables::class,
+        'Nexmo' => Nexmo\Laravel\Facade\Nexmo::class,
+        'Plivo' => Lakshmaji\Plivo\Facade\Plivo::class,
     ],
 
 ];

@@ -12,6 +12,13 @@
         <meta name="description" content="">
         <meta name="author" content="Jeremy Kenedy">
         <link rel="shortcut icon" href="/favicon.ico">
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/dist/css/DatePickerX.css') }}">
+        <script src="{{ asset('css/dist/js/DatePickerX.min.js') }}"></script>
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/dist/css/material-modal.min.css') }}">
+        <script src="{{ asset('css/dist/js/material-modal.min.js') }}"></script>
+        <script src="{{ asset('css/dist/js/sweetalert2.all.min.js') }}"></script>
+         <script src="{{ asset('css/dist/js/sweetalert2.min.js') }}"></script>
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/dist/css/material-modal.min.css') }}">
 
         {{-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries --}}
         <!--[if lt IE 9]>
@@ -45,7 +52,7 @@
                     background-size: auto 100%;
                 }
             @endif
-
+ 
         </style>
 
         {{-- Scripts --}}
@@ -65,7 +72,7 @@
             @include('partials.form-status')
             @yield('template-form-status')
 
-            <header class="demo-header mdl-layout__header mdl-color--grey-100 mdl-color-text--grey-600">
+          <!--   <header class="demo-header mdl-layout__header mdl-color--grey-100 mdl-color-text--grey-600">
                 <div class="mdl-layout__header-row">
 
                     <span class="mdl-layout-title">
@@ -83,7 +90,7 @@
                     @include('partials.header-nav')
 
                 </div>
-            </header>
+            </header> -->
 
             @include('partials.drawer-nav')
 
@@ -117,3 +124,63 @@
 
     </body>
 </html>
+<style type="text/css">
+   #myDiv  {
+  height:300px;
+  width:300px;
+    }
+    #myDiv img
+    {
+      max-width:100%; 
+      max-height:100%;
+      margin:auto;
+      display:block;
+    }
+</style>
+
+<script type="text/javascript">
+var logoHeight = $('#myDiv img').height();
+    if (logoHeight < 104) {
+        var margintop = (104 - logoHeight) / 2;
+        $('#myDiv img').css('margin-top', margintop);
+    }
+   
+    function tick()
+{
+    //get the mins of the current time
+    var mins = new Date().getMinutes();
+    var hours =  new Date().getHours();
+    var ampm = hours >= 12 ? 'pm' : 'am';
+    hours = hours % 12;
+    hours = hours ? hours : 12;
+    
+
+    if(mins == "08"){
+        var strTime = (hours) +" "+ ampm;
+        if(hours==12){
+            
+        }
+       $.ajax({
+         headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+        url:"/sendMessage",
+        method: 'POST',
+        dataType:'text',
+        data:{data:strTime},
+        success:function(data){
+            console.log(data);
+            setTimeout(() => { clearInterval(time)});
+           
+        },
+        error: function(data){
+           console.log('error');
+        }
+    })
+       
+     }
+}
+let time = setInterval(tick, 5000);
+ 
+ 
+</script>
